@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="为保险代理人快速生成客户体检检前提醒话术">
+  <title>检前提醒助手</title>
+  <style>
+    :root{--navy:#13293d;--teal:#18a5a5;--mint:#eaf8f6;--line:#dce7e8;--ink:#1c2b36;--muted:#6b7b82;--bg:#f5f9f9}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--bg);font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.page{min-height:100vh;background:radial-gradient(circle at 85% 8%,rgba(24,165,165,.11),transparent 26%),linear-gradient(180deg,#fff 0,#f6fbfb 38%,#f4f8f8 100%)}.topbar{height:76px;max-width:1220px;margin:auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(220,231,232,.8)}.tool-title{color:var(--navy);font-size:16px;font-weight:650;letter-spacing:.08em;text-decoration:none}.header-note{font-size:13px;letter-spacing:.12em;color:#668086}.hero{max-width:1180px;margin:0 auto;padding:62px 28px 52px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--teal);font-size:13px;font-weight:650;letter-spacing:.18em}.eyebrow i{width:26px;height:2px;background:var(--teal)}.hero h1{margin:18px 0 16px;color:var(--navy);font-size:clamp(38px,5vw,62px);line-height:1.16;letter-spacing:-.04em;font-weight:650}.hero h1 em{color:var(--teal);font-style:normal;font-weight:650}.hero p{margin:0;color:var(--muted);font-size:16px}.workspace{max-width:1180px;margin:0 auto;padding:0 28px 70px;display:grid;grid-template-columns:minmax(330px,.82fr) minmax(430px,1.18fr);gap:22px;align-items:start}.form-card,.result-card{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.94);box-shadow:0 18px 55px rgba(24,72,79,.07);overflow:hidden}.form-card{padding:30px}.card-heading{display:flex;align-items:center;gap:13px;padding-bottom:24px;border-bottom:1px solid #e7eeee;margin-bottom:25px}.step{width:42px;height:42px;flex:0 0 auto;display:grid;place-items:center;border-radius:12px;background:var(--mint);color:var(--teal);font-size:12px;font-weight:750}.card-heading h2{margin:0 0 4px;font-size:19px;color:var(--navy)}.card-heading p{margin:0;font-size:12px;color:#8a999e}.form-card>label,.form-card fieldset{display:block;margin:0 0 19px;padding:0;border:0}.form-card label>span,.form-card legend{display:block;margin-bottom:9px;font-size:13px;font-weight:650;color:#354a55}input,select{width:100%;height:49px;padding:0 15px;color:var(--ink);background:#fbfdfd;border:1px solid #d7e3e4;border-radius:11px;outline:none;transition:.2s}input:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(24,165,165,.12);background:#fff}input::placeholder{color:#aab6b9}.gender-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gender-options label{height:49px;display:grid;place-items:center;border:1px solid #d7e3e4;border-radius:11px;background:#fbfdfd;cursor:pointer;transition:.2s}.gender-options label.selected{border-color:var(--teal);color:#087d82;background:var(--mint);box-shadow:inset 0 0 0 1px var(--teal)}.gender-options input{position:absolute;opacity:0;pointer-events:none}.gender-options label span{margin:0;font-weight:500}.generate{width:100%;height:52px;margin-top:5px;padding:0 20px;display:flex;align-items:center;justify-content:center;gap:14px;border:0;border-radius:12px;color:#fff;background:linear-gradient(135deg,#07909a,#17a9a4);box-shadow:0 10px 24px rgba(9,146,151,.22);font-weight:650;transition:.2s}.generate:hover{transform:translateY(-1px);box-shadow:0 13px 26px rgba(9,146,151,.28)}.generate b{font-size:20px}.result-card{min-height:612px;padding:30px;display:flex;flex-direction:column}.result-heading{position:relative}.copy{margin-left:auto;padding:9px 13px;border:1px solid #b7dcda;border-radius:9px;background:#f2fbfa;color:#087d82;font-size:12px;font-weight:650}.empty-state{flex:1;min-height:410px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#839298}.paper{width:86px;height:104px;margin-bottom:24px;padding:26px 17px;border:1px solid #cfe4e3;border-radius:13px;background:linear-gradient(145deg,#fff,#f0faf9);box-shadow:8px 9px 0 #edf7f6;transform:rotate(-2deg)}.paper i{display:block;height:4px;margin-bottom:9px;border-radius:9px;background:#c8e8e5}.paper i:nth-child(2){width:78%}.paper i:nth-child(3){width:92%}.paper i:nth-child(4){width:60%}.empty-state h3{margin:0 0 9px;color:#52666e;font-size:16px}.empty-state p{margin:0;font-size:12px}.script{white-space:pre-wrap;padding:2px 5px 10px;line-height:1.85;font-size:14px;color:#2a3e47;animation:reveal .35s ease-out}@keyframes reveal{from{opacity:0;transform:translateY(5px)}}footer{padding:25px 20px 32px;text-align:center;color:#87969b;font-size:12px;border-top:1px solid #e1eaea}footer strong{color:#55737a}.hidden{display:none!important}
+    @media(max-width:820px){.topbar{height:66px;padding:0 18px}.header-note{display:none}.hero{padding:45px 20px 38px}.hero p{font-size:14px}.workspace{grid-template-columns:1fr;padding:0 16px 48px}.form-card,.result-card{padding:22px;border-radius:17px}.result-card{min-height:500px}.result-heading{align-items:flex-start}.copy{position:absolute;right:0;top:1px}.result-heading>div{padding-right:70px}.empty-state{min-height:300px}}@media(max-width:420px){.hero h1{font-size:36px}.hero br{display:none}.tool-title{font-size:15px}.workspace{padding-left:12px;padding-right:12px}.form-card,.result-card{padding:18px}.card-heading{gap:10px}.step{width:38px;height:38px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar"><a class="tool-title" href="#">检前提醒助手</a><span class="header-note">保险代理人服务工具</span></header>
+  <section class="hero"><div class="eyebrow"><i></i>检前提醒生成器</div><h1>把预约信息，变成<br><em>贴心的检前提醒</em></h1><p>填写客户预约信息，一键生成完整、准确的话术，轻松复制发送。</p></section>
+  <section class="workspace">
+    <form class="form-card" id="reminder-form">
+      <div class="card-heading"><span class="step">01</span><div><h2>填写预约信息</h2><p>请确认信息准确无误</p></div></div>
+      <label><span>体检人姓氏</span><input id="surname" placeholder="例如：张" maxlength="8" required></label>
+      <fieldset><legend>体检人性别</legend><div class="gender-options"><label><input type="radio" name="gender" value="男" required><span>先生</span></label><label><input type="radio" name="gender" value="女"><span>女士</span></label></div></fieldset>
+      <label><span>预约体检日期</span><input id="date" type="date" required></label>
+      <label><span>预约门店</span><select id="store" required><option value="" disabled selected>请选择体检机构</option></select></label>
+      <button class="generate" type="submit">生成提醒话术 <b>→</b></button>
+    </form>
+    <section class="result-card" aria-live="polite">
+      <div class="card-heading result-heading"><span class="step">02</span><div><h2>检前提醒话术</h2><p id="result-note">填写完成后将在这里生成</p></div><button class="copy hidden" id="copy" type="button">复制话术</button></div>
+      <div class="empty-state" id="empty"><div class="paper"><i></i><i></i><i></i><i></i></div><h3>等待生成提醒话术</h3><p>完成左侧四项信息后，点击“生成提醒话术”</p></div>
+      <div class="script hidden" id="script"></div>
+    </section>
+  </section>
+  <footer>若有其他疑问可添加微信咨询：<strong>RC18750226025</strong></footer>
+</div>
+<script>
+const stores=[
+  {name:"静安瑞慈",rest:"无休",address:"上海市静安区陕西北路278号金鹰国际购物中心7—8层",phone:"021-52895011"},
+  {name:"火车站/西藏北路瑞慈",rest:"周一",address:"上海市静安区西藏北路558-588号3楼",phone:"021-56660820"},
+  {name:"大宁瑞慈",rest:"周二",address:"上海市静安区广延路1286.1308号1幢11-12层",phone:"021-56357036"},
+  {name:"长宁瑞慈",rest:"周二",address:"上海市长宁区兴义路99号上海世贸商城北区3F",phone:"021-63805026"},
+  {name:"漕河泾瑞慈",rest:"周三",address:"上海市徐汇区宜山路1388号民润大厦3楼",phone:"021-54452962"},
+  {name:"徐汇瑞慈",rest:"周二",address:"上海市徐汇区斜土路2899号光启文化广场B栋7楼",phone:"021-64699307"},
+  {name:"闵行瑞慈",rest:"周四",address:"上海市闵行区七莘路2099号1-2楼",phone:"021-61919258"},
+  {name:"古北幸元会",rest:"周一",address:"上海市闵行区红松东路1116号祥源广场四层",phone:"021-52216721",premium:true},
+  {name:"三林瑞慈",rest:"周一",address:"上海市浦东新区浦三路3058号3楼",phone:"021-61273738"},
+  {name:"陆家嘴瑞慈",rest:"周一",address:"上海市浦东新区浦东南路256号华夏银行大厦3F",phone:"021-68866123"},
+  {name:"八佰伴/福山路瑞慈",rest:"周二",address:"上海市浦东新区福山路450号2层A、B、C、D室",phone:"021-68828615"},
+  {name:"金桥瑞慈",rest:"周四",address:"上海市浦东新区金皖路199号A栋裙楼2-4层",phone:"021-53308352"},
+  {name:"张江瑞慈",rest:"周三",address:"上海市浦东新区张江高科技园区张东路1388号15号楼",phone:"021-68795566"},
+  {name:"前滩幸元会",rest:"周二",address:"上海市浦东新区东育路345号陆悦广场RG层",phone:"021-60877958",premium:true},
+  {name:"世纪大道幸元会",rest:"周一",address:"上海市浦东新区世纪大道1589号5层",phone:"021-61066751",premium:true},
+  {name:"杨浦瑞慈",rest:"周四",address:"上海市杨浦区国定路323号3号楼创业大厦13-15楼",phone:"021-65060127"},
+  {name:"普陀瑞慈",rest:"周一",address:"上海市普陀区金沙江路1628弄绿洲中环中心商务广场7号楼2楼",phone:"021-52660781"},
+  {name:"宝山瑞慈",rest:"周三",address:"上海市宝山区共和新路4727号11-12层",phone:"021-61811321"},
+  {name:"嘉定瑞慈",rest:"周二",address:"上海市嘉定区永盛路1190号1-3层",phone:"021-69530119"},
+  {name:"奉贤瑞慈",rest:"周三",address:"上海市金海公路6055弄33号楼1-2层",phone:"021-37195966"},
+  {name:"青浦瑞慈",rest:"周二",address:"上海市青浦区公园东路1289弄26号3-6层",phone:"021-24150171"},
+  {name:"松江瑞慈",rest:"周四",address:"上海市松江区方塔北路605号企德天地5-8层",phone:"021-67865395"}
+];
+const storeSelect=document.querySelector("#store");
+stores.forEach(s=>{const option=document.createElement("option");option.value=s.name;option.textContent=s.name;storeSelect.appendChild(option)});
+document.querySelectorAll('input[name="gender"]').forEach(input=>input.addEventListener("change",()=>{document.querySelectorAll(".gender-options label").forEach(label=>label.classList.toggle("selected",label.contains(document.querySelector('input[name="gender"]:checked'))))}));
+let reminder="";
+document.querySelector("#reminder-form").addEventListener("submit",event=>{
+  event.preventDefault();
+  const surname=document.querySelector("#surname").value.trim();
+  const gender=document.querySelector('input[name="gender"]:checked').value;
+  const date=document.querySelector("#date").value;
+  const selected=stores.find(s=>s.name===storeSelect.value);
+  const parts=date.split("-");
+  const reportLine=selected.premium?"3、报告出具后将有工作人员联系预约解读报告，请注意接听电话。":`3、除${selected.rest}外，7:30-11:30期间可拨打门店客服电话${selected.phone}进行报告解读。`;
+  const femaleLine=gender==="女"?"\n4、备孕、怀孕女性勿进行放射类检查，经期需暂缓妇科及尿检。":"";
+  reminder=`${surname}${gender==="男"?"先生":"女士"}，您预约了${Number(parts[1])}月${Number(parts[2])}日${selected.name}的体检，以下是体检注意事项提醒：\n\n体检流程：\n1、体检当日上午7:30-10:00抵达门店（采血截止10:30），请携带好预约所使用的身份证件至前台登记。\n2、体检报告预计3-5工作日出具，请留意通知短信，打开微信小程序“瑞慈体检RICI”-报告查询进行绑定。\n${reportLine}\n\n检前准备：\n1、体检前保持8-12小时空腹，当天早晨不饮水。勿饮酒或剧烈运动，请保证充足的睡眠休息。\n2、建议轻便着装，不建议佩戴贵重饰品。\n3、慢性病患者请勿自行停药，当日早上可以用少量的水（20ml内）正常服用。${femaleLine}\n\n📍机构地址：${selected.address}`;
+  document.querySelector("#script").textContent=reminder;
+  document.querySelector("#script").classList.remove("hidden");
+  document.querySelector("#empty").classList.add("hidden");
+  document.querySelector("#copy").classList.remove("hidden");
+  document.querySelector("#result-note").textContent="已根据预约信息生成";
+});
+document.querySelector("#copy").addEventListener("click",async event=>{
+  try{await navigator.clipboard.writeText(reminder)}catch(e){const area=document.createElement("textarea");area.value=reminder;document.body.appendChild(area);area.select();document.execCommand("copy");area.remove()}
+  event.currentTarget.textContent="已复制 ✓";setTimeout(()=>event.currentTarget.textContent="复制话术",1800);
+});
+</script>
+</body>
+</html>
