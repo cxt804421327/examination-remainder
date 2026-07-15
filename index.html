@@ -67,7 +67,11 @@ document.querySelector("#reminder-form").addEventListener("submit",event=>{
   const date=document.querySelector("#date").value;
   const selected=stores.find(s=>s.name===storeSelect.value);
   const parts=date.split("-");
-  const reportLine=selected.premium?"3、报告出具后将有工作人员联系预约解读报告，请注意接听电话。":`3、除${selected.rest}外，7:30-11:30期间可拨打门店客服电话${selected.phone}进行报告解读。`;
+  const reportLine=selected.premium
+    ?"3、报告出具后将有工作人员联系预约解读报告，请注意接听电话。"
+    :selected.rest==="无休"
+      ?`3、7:30-11:30期间可拨打门店客服电话${selected.phone}进行报告解读。`
+      :`3、除${selected.rest}外，7:30-11:30期间可拨打门店客服电话${selected.phone}进行报告解读。`;
   const femaleLine=gender==="女"?"\n4、备孕、怀孕女性勿进行放射类检查，经期需暂缓妇科及尿检。":"";
   reminder=`${surname}${gender==="男"?"先生":"女士"}，您预约了${Number(parts[1])}月${Number(parts[2])}日${selected.name}的体检，以下是体检注意事项提醒：\n\n体检流程：\n1、体检当日上午7:30-10:00抵达门店（采血截止10:30），请携带好预约所使用的身份证件至前台登记。\n2、体检报告预计3-5工作日出具，请留意通知短信，打开微信小程序“瑞慈体检RICI”-报告查询进行绑定。\n${reportLine}\n\n检前准备：\n1、体检前保持8-12小时空腹，当天早晨不饮水。勿饮酒或剧烈运动，请保证充足的睡眠休息。\n2、建议轻便着装，不建议佩戴贵重饰品。\n3、慢性病患者请勿自行停药，当日早上可以用少量的水（20ml内）正常服用。${femaleLine}\n\n📍机构地址：${selected.address}`;
   document.querySelector("#script").textContent=reminder;
